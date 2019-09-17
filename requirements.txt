@@ -1,3 +1,2 @@
 textstat
-BeautifulSoup
 nltk
