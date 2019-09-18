@@ -1,2 +1,5 @@
 textstat
 nltk
+matplotlib
+pandas
+seaborn
