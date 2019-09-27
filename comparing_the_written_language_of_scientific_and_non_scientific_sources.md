@@ -3,15 +3,15 @@
 ### [Journal of Open Source Software](https://joss.readthedocs.io/en/latest/submitting.html)
 
 # Comparing the Written Language of Scientific and Non-scientific Sources
- 
-### Authors 
+
+### Authors
 insert names here
 *equal contribution
 
-## Summary 
-To ensure that text is accessible to a general population, writers must keep in mind the length of written text, as well as sentence structure, vocabulary, and other related language features [11].  Popular magazines, newspapers, and other online outlets purposefully cater language for a wide audience. On the other hand, there is a tendency for academic writing to use more complex, jargon-heavy language. This likely stems from the inherent complexity of topics, as well as the expectation to share ideas predominantly with other scientists in the form of academic journal articles. 
+## Summary
+To ensure that text is accessible to a general population, writers must keep in mind the length of written text, as well as sentence structure, vocabulary, and other related language features [11].  Popular magazines, newspapers, and other online outlets purposefully cater language for a wide audience. On the other hand, there is a tendency for academic writing to use more complex, jargon-heavy language. This likely stems from the inherent complexity of topics, as well as the expectation to share ideas predominantly with other scientists in the form of academic journal articles.
 
-In the age of growing science communication, this tendency for scientists to use more complex language can carry over when writing in more mainstream media, such as blogs, websites, and social media. This can make this public-facing material difficult to read and understand, undermining efforts to communicate scientific topics more broadly to the general public. 
+In the age of growing science communication, this tendency for scientists to use more complex language can carry over when writing in more mainstream media, such as blogs, websites, and social media. This can make this public-facing material difficult to read and understand, undermining efforts to communicate scientific topics more broadly to the general public.
 
 To address this, we created a tool to analyze complexity of a given scientist’s work relative to other writing sources.  The tool first quantifies and contextualizes the readability of online written material, including currently existing text repositories like the Upgoer5 and results from web searches with varying topics and complexity. These data are then used as a reference to compare user-selected written work. The user enters an author’'s name, which begins a web-scraping process to collect text written by that author from google scholar. The software then computes the readability of this information and compares it to the reference sources mentioned above.
 
@@ -19,17 +19,17 @@ We believe this tool uses a data-driven approach to provide insightful,  statist
 
 ## Methods
 We built a web-scraping and written text analysis infrastructure by extending many existing Free and Open Source (FOS) tools, including  Google Scrape (reference), Beautiful Soup (reference), and Selenium (reference).
- 
+
 ### Search Engine Queries
 We included three different, unrelated, and broad-ranging lists of search terms. The first ten search results were used for analysis.
 
  1.  Science Queries
-    
+
 Gains in knowledge about physical entities or physical processes
 'evolution', 'photosynthesis' ,'Transgenic', 'GMO', 'climate change', 'cancer', 'Vaccines', 'Genetically Modified Organism', 'differential equation','psychophysics','soma.'
 
  2.  Cultural queries
-    
+
 Predominantly cultural in nature, or worldview related
 'reality TV', 'prancercise philosophy', 'play dough delicious desserts', 'unicorn versus brumby', 'football soccer' , 'god fearing'.
 
@@ -45,26 +45,26 @@ After scraping across each list, we excluded text from 3 types of websites that 
 
 ### Text Metrics to Assess Language Complexity
 1.  Text-stat - measures text reading level (complexity)
-    
+
 2.  The Natural Language Processing Tool Kit (NLTK) - measures text subjectivity and sentiment
-   
+
 3.  Search Engine Factors - records page rank
-   
+
 4.  LZW (de-)compression-ratio - measures information entropy
-    
+
 5.  Cluster centers - measures clustering of data when organized using complexity, sentiment, word length and compression ratios
 
 ### Reference Texts used for Analysis
 We include a number of available reference texts with a-priori assumptions about how complex the text should be.
 
 1.  Upgoer5 - a library using only the 10,000 most commonly occurring English words[2].
-    
-2.  Wikipedia - a free, popular, crowdsourced encyclopedia that is generated from self-nominating volunteers. 
+
+2.  Wikipedia - a free, popular, crowdsourced encyclopedia that is generated from self-nominating volunteers.
 
 3.  Postmodern Essay Generator (PMEG) - generates output consisting of sentences that obey the rules of written English, but without restraints on the semantic conceptual references [5].
 
 4.  ART Corpus - a library of scientific papers published in The Royal Society of Chemistry (RSC) [1].
-    
+
 | Text Source | Mean Complexity | Unique Words |
 |----------|----------|:-------------:|
 | Upgoer 5                                     | 7                               | 35,103 |
@@ -90,7 +90,7 @@ docker run -it -v $HOME/data_words russelljarvis/science_accessibility:slc
 
 Assuming you have installed Docker on your Operating System, and have a dockerhub account, run the following commands in a BASH terminal.
 
-```BASH 
+```BASH
 docker pull russelljarvis/science_accessibility_user:latest
 ```
  Here is a python example to search for results from academic author Richard Gerkin. When inside the docker container, issue the command:
@@ -102,8 +102,10 @@ docker run -v $HOME/data_words russelljarvis/science_accessibility_user "B Lusk"
 This generates a graph displaying the mean writing complexity of author Bradley Lusk against a distribution of content from ART corpus.
 
 To date, we have created a command line interface (CLI) to achieve this goal. Moving forward, we aim to expand this to a web application that will be more user friendly and allow additional utility.
-  
-## References 
+
+![Specific Author Relative to Distribution](for_markdown_repository.png)
+
+## References
 [1] Soldatova, Larisa, and Maria Liakata. "An ontology methodology and cisp-the proposed core information about scientific papers." JISC Project Report (2007).
 
 [2] Kuhn, Tobias. "The controlled natural language of randall munroe’s thing explainer." International Workshop on Controlled Natural Language. Springer, Cham, 2016.
@@ -125,4 +127,3 @@ To date, we have created a command line interface (CLI) to achieve this goal. Mo
 [10]  High, Rob. "The era of cognitive systems: An inside look at IBM Watson and how it works." IBM Corporation, Redbooks (2012).
 
 [11] Kutner, Mark, Elizabeth Greenberg, and Justin Baer. "A First Look at the Literacy of America's Adults in the 21st Century. NCES 2006-470." _National Center for Education Statistics_(2006).
-
