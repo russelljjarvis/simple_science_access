@@ -1,2 +1,8 @@
 textstat
 nltk
+matplotlib
+pandas
+seaborn
+plotly
+cufflinks
+bokeh
