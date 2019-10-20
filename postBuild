@@ -1,4 +1,6 @@
+# download data to visualize from dropbox.
 wget https://www.dropbox.com/s/3h12l5y2pn49c80/traingDats.p?dl=0
 wget https://www.dropbox.com/s/crarli3772rf3lj/more_authors_results.p?dl=0
 wget https://www.dropbox.com/s/x66zf52himmp5ox/benchmarks.p?dl=0
+wget https://www.dropbox.com/s/1kc7alp79h701hx/scraped_new.p?dl=0
 # jupyter labextension install jupyterlab_bokeh
